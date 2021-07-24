@@ -1126,7 +1126,7 @@ class _FeatureConsumer(_BaseGenBankConsumer):
                     location_line,
                     self._expected_size,
                     strand,
-                    seq_type=self._seq_type.lower(),
+                    seq_type=self.data.annotations["topology"].lower(),
                 )
             return
 
@@ -1168,7 +1168,7 @@ class _FeatureConsumer(_BaseGenBankConsumer):
                     # CompoundLocation.
                     locs.extend(
                         _loc(
-                            part, self._expected_size, strand, self._seq_type.lower()
+                            part, self._expected_size, strand, self.data.annotations["topology"].lower()
                         ).parts
                     )
 
@@ -1197,7 +1197,7 @@ class _FeatureConsumer(_BaseGenBankConsumer):
                 location_line,
                 self._expected_size,
                 strand,
-                seq_type=self._seq_type.lower(),
+                seq_type=self.data.annotations["topology"].lower(),
             )
             return
 
@@ -1223,7 +1223,7 @@ class _FeatureConsumer(_BaseGenBankConsumer):
                         part,
                         self._expected_size,
                         part_strand,
-                        seq_type=self._seq_type.lower(),
+                        seq_type=self.data.annotations["topology"].lower(),
                     ).parts
 
                 except ValueError:
